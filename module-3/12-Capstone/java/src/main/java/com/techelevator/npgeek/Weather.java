@@ -1,7 +1,7 @@
 package com.techelevator.npgeek;
 
 
-public class DailyForecast{
+public class Weather{
 	
 	String parkCode;
 	int day;
