@@ -3,7 +3,7 @@ package com.techelevator.npgeek;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-
+import com.techelevator.npgeek.DAO.*;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +36,7 @@ public class SurveyController {
 	
 	}
 	
+	
 	@RequestMapping(path="/placeholderforsurvey.jsp", method=RequestMethod.POST)
 	public String processSurvey(@Valid @ModelAttribute Survey newSurvey, BindingResult result, RedirectAttributes flash) {
 		flash.addFlashAttribute("placeholderforsurveyjsp", newSurvey);
@@ -51,7 +52,7 @@ public class SurveyController {
 	
 	@RequestMapping(path="/placeholderforconfirmation",method=RequestMethod.GET)
 	public String showConfirmation(ModelMap modelHolder) {
-		Map<String, Integer> topParks = surveyDao.getFavoritePark();
+		Map<String, Integer> topParks = surveyDAO.getFavoritePark();
 		Map<String, Park> parkList= new HashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
@@ -65,7 +66,7 @@ public class SurveyController {
 	
 	@RequestMapping(path="/placeholderfortopParks",method=RequestMethod.GET)
 	public String showTopParks(ModelMap modelHolder) {
-		Map<String, Integer> topParks = surveyDao.getFavoritePark();
+		Map<String, Integer> topParks = surveyDAO.getFavoritePark();
 		Map<String, Park> parkList= new HashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
