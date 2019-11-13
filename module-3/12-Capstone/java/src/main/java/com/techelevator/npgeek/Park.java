@@ -13,23 +13,44 @@ public class Park {
 	float milesOfTrail;
 	int numberOfCampsites;
 	String climate;
-	int yearFounded;
-	int annualVisitorCount;
+	String yearFounded;
+	String annualVisitorCount;
 	String inspirationalQuote;
 	String quoteSource;
 	String parkDescription;
+	String numberOfAnimalSpecies;
+	int entryFee;
+	String inspirationalQuoteSource;
 	
 	
+	public String getInspirationalQuoteSource() {
+		return inspirationalQuoteSource;
+	}
+	public void setInspirationalQuoteSource(String inspirationalQuoteSource) {
+		this.inspirationalQuoteSource = inspirationalQuoteSource;
+	}
+	public int getEntryFee() {
+		return entryFee;
+	}
+	public void setEntryFee(int entryFee) {
+		this.entryFee = entryFee;
+	}
+	public String getNumberOfAnimalSpecies() {
+		return numberOfAnimalSpecies;
+	}
+	public void setNumberOfAnimalSpecies(String numberOfAnimalSpecies) {
+		this.numberOfAnimalSpecies = numberOfAnimalSpecies;
+	}
 	public int getAcreage() {
 		return acreage;
 	}
 	public void setAcreage(int acreage) {
 		this.acreage = acreage;
 	}
-	public int getAnnualVisitorCount() {
+	public String getAnnualVisitorCount() {
 		return annualVisitorCount;
 	}
-	public void setAnnualVisitorCount(int annualVisitorCount) {
+	public void setAnnualVisitorCount(String annualVisitorCount) {
 		this.annualVisitorCount = annualVisitorCount;
 	}
 	public String getClimate() {
@@ -92,13 +113,12 @@ public class Park {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getYearFounded() {
+	public String getYearFounded() {
 		return yearFounded;
 	}
-	public void setYearFounded(int yearFounded) {
+	public void setYearFounded(String yearFounded) {
 		this.yearFounded = yearFounded;
 	}
-	
 	
 	
 	
