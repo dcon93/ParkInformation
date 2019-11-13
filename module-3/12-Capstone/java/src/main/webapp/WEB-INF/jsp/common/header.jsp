@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>National Park</title>
-    <c:url value="/css/npgeek.css" var="cssHref" />
+    <%--<c:url value="/css/npgeek.css" var="cssHref" /> --%>
     <link rel="stylesheet" href="${cssHref}">
 </head>
 
@@ -22,12 +22,13 @@
     <nav>
         <h2>National Parks</h2>
         <p>More about Parks!</p>
-      
+      	<c:url value="/homePage" var="homePageUrl"/> 
+      	<c:url value="/survey" var="surveyUrl"/> 
         
         
         <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Survey</a></li>
+            <li><a href="${homePage }">Home</a></li>
+            <li><a href="${survey }">Survey</a></li>
         </ul>
     </nav>
     
