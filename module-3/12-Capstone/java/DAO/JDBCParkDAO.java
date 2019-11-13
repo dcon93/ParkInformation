@@ -1,27 +1,49 @@
+import java.awt.List;
 import java.util.ArrayList;
+
+import javax.activation.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import com.techelevator.npgeek.Park;
 
 public class JDBCParkDAO implements ParkDAO{
 	
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public JdbcParkDAO(DataSource dataSource) {
+	public JDBCParkDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
 	public ArrayList<Park> getAllParks() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Park> allParks = new ArrayList<>();
+		String sqlSelectAllParks = "SELECT * FROM park";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllParks);
+		while(results.next()){
+			allParks.add(mapRowToPark(results));
+		}
+		return allParks;
 	}
 
 	@Override
 	public Park getParkByParkCode(String parkCode) {
-		// TODO Auto-generated method stub
-		return null;
+		Park newPark = null;
+		String sqlSelectParkByParkCode = "SELECT * FROM park WHERE parkcode=?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectParkByParkCode, parkCode);
+		if(results.next()){
+			newPark = mapRowToPark(results);
+		}
+		return newPark;
 	}
+	
+	
+	public Park mapRowToPark(SqlRowSet row) {
+		return null;
+	
+}
 	
 }
