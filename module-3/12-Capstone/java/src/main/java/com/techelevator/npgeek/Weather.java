@@ -4,19 +4,16 @@ package com.techelevator.npgeek;
 public class Weather{
 	
 	String parkCode;
-	int day;
+
 	int tempLow; //Stored as Farenheit
 	int tempHigh; //Stored as Farenheit
 	String forecast;
+	int fiveDayForeCast;
 	
 	
 	
-	public int getDay() {
-		return day;
-	}
-	public void setDay(int day) {
-		this.day = day;
-	}
+
+
 	public String getForecast() {
 		return forecast;
 	}
@@ -40,6 +37,12 @@ public class Weather{
 	}
 	public void setTempLow(int tempLow) {
 		this.tempLow = tempLow;
+	}
+	public int getFiveDayForeCast() {
+		return fiveDayForeCast;
+	}
+	public void setFiveDayForeCast(int fiveDayForeCast) {
+		this.fiveDayForeCast = fiveDayForeCast;
 	}
 	
 	

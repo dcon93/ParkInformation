@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>National Park</title>
-    <c:url value="/css/solarsystemgeek.css" var="cssHref" />
+    <c:url value="/css/npgeek.css" var="cssHref" />
     <link rel="stylesheet" href="${cssHref}">
 </head>
 
@@ -14,18 +14,22 @@
     		<c:url value="/" var="homePageHref" />
     		<c:url value="/img/logo.png" var="logoSrc" />
         <a href="${homePageHref}">
-        		<img src="${logoSrc}" alt="Solar System Geek logo" />
+        		<img src="${logoSrc}" alt="National Parks Geek Logo" />
         </a>
         <h1></h1>
-        <p>The Solar System formed 4.6 billion years ago from the gravitational collapse of a giant interstellar molecular cloud. The vast majority of the system's mass is in the Sun, with most of the remaining mass contained in Jupiter. The four smaller inner planets, Mercury, Venus, Earth and Mars, are terrestrial planets, being primarily composed of rock and metal. The four outer planets are giant planets, being substantially more massive than the terrestrials. The two largest, Jupiter and Saturn, are gas giants, being composed mainly of hydrogen and helium; the two outermost planets, Uranus and Neptune, are ice giants, being composed largely of substances with relatively high melting points compared with hydrogen and helium, called ices, such as water, ammonia and methane. All planets have almost circular orbits that lie within a nearly flat disc called the ecliptic. </p>
+        <%--<p>Description </p>--%>
     </header>
     <nav>
-        <h2>Explore The Solar System</h2>
-        <p> Use these state of the art web applications to learn more about the solar system! </p>
+        <h2>National Parks</h2>
+        <p>More about Parks!</p>
       
         
         
         <ul>
-            
+            <li><a href="">Home</a></li>
+            <li><a href="">Survey</a></li>
         </ul>
     </nav>
+    
+    
+    <%--note that body and html are open tags that should be closed--%>
