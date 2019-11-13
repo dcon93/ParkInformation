@@ -8,7 +8,7 @@ public class Weather{
 	int tempLow; //Stored as Farenheit
 	int tempHigh; //Stored as Farenheit
 	String forecast;
-	int fiveDayForeCast;
+	int fiveDayForecast;
 	
 	
 	
@@ -39,10 +39,10 @@ public class Weather{
 		this.tempLow = tempLow;
 	}
 	public int getFiveDayForeCast() {
-		return fiveDayForeCast;
+		return fiveDayForecast;
 	}
 	public void setFiveDayForeCast(int fiveDayForeCast) {
-		this.fiveDayForeCast = fiveDayForeCast;
+		this.fiveDayForecast = fiveDayForeCast;
 	}
 	
 	
