@@ -63,6 +63,20 @@ public class SurveyController {
 		return "placeholderforconfirmation";
 	}
 	
+	@RequestMapping(path="/placeholderfortopParks",method=RequestMethod.GET)
+	public String showTopParks(ModelMap modelHolder) {
+		Map<String, Integer> topParks = surveyDao.getFavoritePark();
+		Map<String, Park> parkList= new HashMap<>();
+		
+		for(Entry<String, Integer> entry : topParks.entrySet()) {
+			parkList.put(entry.getKey(),parkDao.getParkByParkCode(entry.getKey()));
+		}
+		 modelHolder.put("topParks", topParks);
+		 modelHolder.put("parkList", parkList);
+		
+		return "placeholderfortopParks";
+	}
+	
 	
 	
 }
