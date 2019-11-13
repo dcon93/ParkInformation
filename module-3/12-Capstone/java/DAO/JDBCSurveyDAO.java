@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import com.techelevator.npgeek.Survey;
 
 
 @Component
-public class JDBCSurveyDAO {
+public class JDBCSurveyDAO implements SurveyDAO {
 private JdbcTemplate jdbcTemplate;
 	
 
@@ -20,12 +21,30 @@ private JdbcTemplate jdbcTemplate;
 	public JdbcSurveyDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
+
+
+
 	@Override
 	public void saveSurvey(Survey newSurvey) {
-		String sqlSaveSurvey = "INSERT INTO survey_result (parkcode, emailaddress, state, activitylevel) VALUES (?,?,?,?)";
-		jdbcTemplate.update(sqlSaveSurvey, newSurvey.getParkCode(), newSurvey.getEmail(), newSurvey.getState(), newSurvey.getActivityLevel());
+			String sqlSaveSurvey = "INSERT INTO survey_result (parkcode, emailaddress, state, activitylevel) VALUES (?,?,?,?)";
+			jdbcTemplate.update(sqlSaveSurvey, newSurvey.getParkCode(), newSurvey.getEmail(), newSurvey.getState(), newSurvey.getActivityLevel());
 
+		}
+
+
+
+	@Override
+	public Map<String, Integer> getFavoritePark() {
+		Map<String, Integer> favoriteParks = new HashMap<>();
+		String sqlSelectTopFiveParks = "SELECT parkcode, COUNT(parkcode) AS countpark FROM survey_result GROUP BY parkcode ORDER BY countpark DESC LIMIT 5";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectTopFiveParks);
+		while (results.next()){
+			favoriteParks.put(results.getString("parkcode"), results.getInt("countpark"));
+			
+		}
+		return favoriteParks;
+	}
 	}
 	
-}
+
+	
