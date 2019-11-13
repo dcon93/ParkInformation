@@ -11,7 +11,7 @@
 	<li>
 		<a href="${ parkUrl }"><img src="${parkImg }"/></a>
 		<a href="${ parkUrl }">${park.parkName } ($park.state)</a>
-		<p>${park.parkDescription }
+		<p>${park.parkDescription }</p>
 	
 	</li>
 	</c:forEach>
