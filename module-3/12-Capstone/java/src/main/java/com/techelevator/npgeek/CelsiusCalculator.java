@@ -2,7 +2,7 @@ package com.techelevator.npgeek;
 
 public class CelsiusCalculator {
 
-	
+	private static double temperature;
 	/*
 	 * @param temperature in farenheit
 	 *@return temperature in celsius
@@ -15,7 +15,12 @@ public class CelsiusCalculator {
 	}
 	
 	
-	
+	public static double getTemperature() {
+		return temperature;
+	}
+	public static void setTemperature(double temperature) {
+		CelsiusCalculator.temperature = temperature;
+	}
 	
 	
 }
