@@ -134,12 +134,22 @@
 </div>
 
 			<c:url var="conversionSubmit" value="/parkDetail/${park.parkCode}" />
-			<form method="post" action="${CelsiusCalculatorSubmit }">
+			<form method="post" action="${CelsiusCalculator }">
 				<input type="radio" name="convert" value="C">Celcius <input
 					type="radio" name="convert" value="F">Fahrenheit <input
 					type="submit">
 			</form>
-
+			
+<%-- 							<c:if test="${F == false}"> --%>
+<%-- 								<fmt:formatNumber var="formattedCHigh" maxFractionDigits="0" value="${((forecast.highTemp - 32) * (.5556)) }" /> --%>
+<%-- 								High <c:out value="${formattedCHigh}" />  --%>
+<%-- 								<fmt:formatNumber var="formattedCLow" maxFractionDigits="0" value="${((forecast.highTemp - 32) * (.5556)) }" /> --%>
+<%-- 								Low <c:out value="${formattedCLow}" />  --%>
+<%-- 							</c:if> --%>
+<%-- 							<c:if test="${F == true || F == null}"> --%>
+<%-- 								High <c:out value="${forecast.highTemp}" />  --%>
+<%-- 								Low <c:out value="${forecast.lowTemp}" />  --%>
+<%-- 							</c:if>							 --%>
 			<p>
 				<strong><c:out value="${parkWeather[0].weatherMessage}" /></strong>
 			</p>
