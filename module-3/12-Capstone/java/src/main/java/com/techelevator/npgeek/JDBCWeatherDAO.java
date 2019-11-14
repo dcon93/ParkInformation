@@ -3,6 +3,8 @@ package com.techelevator.npgeek;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -17,7 +19,7 @@ public class JDBCWeatherDAO implements WeatherDAO {
 private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public JdbcWeatherDAO(DataSource dataSource) {
+	public JDBCWeatherDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
@@ -37,10 +39,10 @@ private JdbcTemplate jdbcTemplate;
 	
 	private Weather mapRowToWeather(SqlRowSet row){
 		Weather newWeather = new Weather();
-		newWeather.setFiveDayForcastValue(row.getInt("fivedayforecastvalue"));
+		newWeather.setFiveDayForeCast(row.getInt("fivedayforecastvalue"));
 		newWeather.setForecast(row.getString("forecast"));
-		newWeather.setHigh(row.getInt("high"));
-		newWeather.setLow(row.getInt("low"));
+		newWeather.setTempHigh(row.getInt("high"));
+		newWeather.setTempLow(row.getInt("low"));
 		return newWeather;
 	}
 	
