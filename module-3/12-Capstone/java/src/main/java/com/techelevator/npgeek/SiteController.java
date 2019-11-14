@@ -49,9 +49,9 @@ public class SiteController {
 				int tempVar;
 
 				// need to import conversion class for these next four lines to work not sure what you named them
-				tempVar = (int) CelsiusCalculator.farenheitToCelsius(tempWeather.getTempHigh());
+				tempVar = (int) CelsiusCalculator.convertFtoC(tempWeather.getTempHigh());
 				tempWeather.setTempHigh(tempVar);
-				tempVar = (int) CelsiusCalculator.celsiusToFarenheit(tempWeather.getTempLow());
+				tempVar = (int) CelsiusCalculator.convertCtoF(tempWeather.getTempLow());
 				tempWeather.setTempLow(tempVar);
 			}
 

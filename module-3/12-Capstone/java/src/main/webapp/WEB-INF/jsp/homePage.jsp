@@ -9,8 +9,8 @@
 	<c:url value="parkDetail" var="parkUrl"/>	
 	
 	<li>
-		<a href="${ parkUrl }"><img src="${parkImg }"/></a>
-		<a href="${ parkUrl }">${park.parkName } (${ park.state})</a>
+		<a href="${ parkUrl }/${park.parkCode}"><img src="${parkImg }"/></a>
+		<a href="${ parkUrl }/${park.parkCode}">${park.parkName } (${ park.state})</a>
 		<p>${park.parkDescription }</p>
 	
 	</li>

@@ -57,6 +57,10 @@
 		<c:out value="${park.elevationInFeet }" />
 	</p>
 	<p>
+		Climate:
+		<c:out value="${park.climate }" />
+	</p>
+	<p>
 		Total Miles of Trails:
 		<c:out value="${park.milesOfTrail }" />
 	</p>
@@ -77,39 +81,33 @@
 	</p>
 </div>
 
-<div class="weatherContainer">
+<div class="oneDayWeatherContainer">
+			<c:forEach items="${parkWeather}" var="forecastWeather">
+				<c:if test="${forecastWeather.fiveDayForeCast < 1}">
+					<div class="individualForecasts">
+						<div class="individualImage">
+							<c:url var="weatherImage"
+ 								value="/img/weather/" />
+ 							<img src="${weatherImage}${forecastWeather.forecast}.png" /> 
+						</div>
+						<div class="individualWeatherInfo">
+							<div>
+								High:
+								<c:out value="${forecastWeather.tempHigh}" />
+							</div>
+							<div>
+								Low:
+								<c:out value="${forecastWeather.tempLow}" />
+							</div>
+						</div>
+					</div>
+				</c:if>
+			</c:forEach>
+		</div>
+	</div>
+</div>
 
-<!-- 	<div class="currentWeatherContainer"> -->
-<!-- 		<div class="currentWeather"> -->
-<!-- 			<div class="currentWeatherImage"> -->
-<!-- 				<h3>Today</h3> -->
-<%-- 				<c:url var="weatherImage" --%>
-<%-- 					value="/img/weather/" />  --%>
-<%--  				<img src="${weatherImage}${parkWeather[0].parsedForecast}.png" />  --%>
-<!-- 			</div> -->
-<!-- 			<div class="currentWeatherInfo"> -->
-<!-- 				<div class="weatherTemp"> -->
-<!-- 					High: -->
-<%-- 					<c:out value="${parkWeather[0].high}" /> --%>
-<!-- 				</div> -->
-<!-- 				<div class="weatherTemp"> -->
-<!-- 					Low: -->
-<%-- 					<c:out value="${parkWeather[0].low}" /> --%>
-<!-- 				</div> -->
-<!-- 			</div> -->
-<%-- 			<c:url var="conversionSubmit" value="/parkDetail/${park.parkCode}" /> --%>
-<%-- 			<form method="post" action="${conversionSubmit }"> --%>
-<!-- 				<input type="radio" name="convert" value="C">Celcius <input -->
-<!-- 					type="radio" name="convert" value="F">Fahrenheit <input -->
-<!-- 					type="submit"> -->
-<!-- 			</form> -->
-
-<!-- 			<p> -->
-<%-- 				<strong><c:out value="${parkWeather[0].weatherMessage}" /></strong> --%>
-<!-- 			</p> -->
-<!-- 		</div> -->
-
-		<div class="fourDayWeatherContainer">
+		<div class="fiveDayWeatherContainer">
 			<c:forEach items="${parkWeather}" var="forecastWeather">
 				<c:if test="${forecastWeather.fiveDayForeCast > 0}">
 					<div class="individualForecasts">
@@ -134,5 +132,16 @@
 		</div>
 	</div>
 </div>
+
+			<c:url var="conversionSubmit" value="/parkDetail/${park.parkCode}" />
+			<form method="post" action="${CelsiusCalculatorSubmit }">
+				<input type="radio" name="convert" value="C">Celcius <input
+					type="radio" name="convert" value="F">Fahrenheit <input
+					type="submit">
+			</form>
+
+			<p>
+				<strong><c:out value="${parkWeather[0].weatherMessage}" /></strong>
+			</p>
 
 <%@include file="common/footer.jsp"%>
