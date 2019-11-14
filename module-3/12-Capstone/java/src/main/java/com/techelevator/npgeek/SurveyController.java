@@ -1,6 +1,8 @@
 package com.techelevator.npgeek;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -54,10 +56,10 @@ public class SurveyController {
 		return "redirect:/confirmation";
 	}
 	
-	@RequestMapping(path="/confirmation",method=RequestMethod.POST)
+	@RequestMapping(path="/confirmation",method=RequestMethod.GET)
 	public String showConfirmation(ModelMap modelHolder) {
 		Map<String, Integer> topParks = surveyDAO.getFavoritePark();
-		Map<String, Park> parkList= new HashMap<>();
+		Map<String, Park> parkList= new LinkedHashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
 			parkList.put(entry.getKey(),parkDAO.getParkByParkCode(entry.getKey()));
@@ -65,13 +67,13 @@ public class SurveyController {
 		 modelHolder.put("topParks", topParks);
 		 modelHolder.put("parkList", parkList);
 		
-		return "redirect:/placeholderforconfirmationjsp";
+		return "confirmation";
 	}
 	
-	@RequestMapping(path="/placeholderfortopParks",method=RequestMethod.GET)
+	@RequestMapping(path="/topParks",method=RequestMethod.GET)
 	public String showTopParks(ModelMap modelHolder) {
 		Map<String, Integer> topParks = surveyDAO.getFavoritePark();
-		Map<String, Park> parkList= new HashMap<>();
+		Map<String, Park> parkList= new LinkedHashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
 			parkList.put(entry.getKey(),parkDAO.getParkByParkCode(entry.getKey()));
@@ -79,7 +81,7 @@ public class SurveyController {
 		 modelHolder.put("topParks", topParks);
 		 modelHolder.put("parkList", parkList);
 		
-		return "placeholderfortopParks";
+		return "topParks";
 	}
 	
 	

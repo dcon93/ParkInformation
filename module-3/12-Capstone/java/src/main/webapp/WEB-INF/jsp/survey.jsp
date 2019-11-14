@@ -30,15 +30,28 @@
     </form:select>
     <form:errors path="state" cssClass="error"/>
 
-	<input type="submit" value="Submit" />
+	<form:label path="activityLevel">Activity Level:</form:label>
+	<form:select path="activityLevel" id="activityLevel">
+        <form:option value="inactive" label="Inactive"/> 
+        <form:option value="sedentary" label="Sedentary"/> 
+        <form:option value="active" label="Active"/> 
+        <form:option value="extremely active" label ="Extremely Active"/> 
+       
+        
+        
+    </form:select>
+    <form:errors path="activityLevel" cssClass="error"/>
+    
+    
+	<input type="submit"  />
 </form:form>
 
-
+<%-- 
 <form action="/confirmation" method="POST" id="survey">
 	
-	
+	--%>
 	<%--Favorite drop, email text, state of res drop, activity radio --%>
-	
+	<%-- 
 	<label for="">Favorite</label>
 	
 		<input type="text" id="favorite-park" name="favorite-park"></input>
@@ -53,8 +66,8 @@
 
 </form>
 
-
-
+ --%>
+<%--
 
 <ul>
 	<c:forEach items="${parks }" var="park"> 
@@ -71,7 +84,7 @@
 
 
 </ul>
-
+ --%>
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
 
 
