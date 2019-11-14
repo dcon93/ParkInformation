@@ -29,6 +29,8 @@ public class Survey {
 	@NotBlank( message="Park is required")
 	String parkCode;
 	
+	Long surveyId;
+	
 	
 	
 	
@@ -61,6 +63,12 @@ public class Survey {
 	}
 	public void setParkCode(String parkCode) {
 		this.parkCode = parkCode;
+	}
+	public Long getSurveyId() {
+		return surveyId;
+	}
+	public void setSurveyId(Long surveyId) {
+		this.surveyId = surveyId;
 	}
 	
 }
