@@ -1,7 +1,9 @@
+package com.techelevator.npgeek.DAO;
 import java.awt.List;
+
 import java.util.ArrayList;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -67,4 +69,4 @@ public class JDBCParkDAO implements ParkDAO{
 	
 }
 	
-}
+

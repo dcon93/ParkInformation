@@ -1,9 +1,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 	<c:url value="/homePage" var="homePageUrl"/>
+	<c:url value="/survey" var="surveyUrl"/>
 
+
+
+
+
+
+<form:form action="${surveyUrl }"  method="POST" id="survey" modelAttribute="survey">
+	<form:label path="parkCode">Favorite Park:</form:label>
+	<form:select path="parkCode">
+		<c:forEach items="${parks }" var="park">
+			<form:option value="${park.parkCode }" >${park.parkName }</form:option>
+		</c:forEach>
+	</form:select>
+	<form:errors path="firstName" cssClass="errors"/>
+	
+	<form:label path="email">Email</form:label>
+	<form:input path="email" />
+	<form:errors path="email" cssClass="error"/>
+
+</form:form>
 
 
 <form action="/confirmation" method="POST" id="survey">

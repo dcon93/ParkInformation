@@ -1,6 +1,7 @@
 package com.techelevator.npgeek;
 
 import java.util.HashMap;
+
 import java.util.Map;
 import java.util.Map.Entry;
 import com.techelevator.npgeek.DAO.*;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 @Controller
 public class SurveyController {
 
@@ -26,18 +28,19 @@ public class SurveyController {
 	ParkDAO parkDAO;
 	
 	//Change what is in quotes once we are done with the jsp files
-	@RequestMapping(path="/placeholderForSurveyjsp",method=RequestMethod.GET)
+	@RequestMapping(path="/survey",method=RequestMethod.GET)
 	public String showSurvey(ModelMap modelHolder) {
 		if (! modelHolder.containsAttribute("placeholderForSurveyjsp")) {
 			modelHolder.put("survey", new Survey());
 		}
+		modelHolder.put("parks",parkDAO.getAllParks());
 
-	return "placeholderForSurveyjsp";
+	return "survey";
 	
 	}
 	
 	
-	@RequestMapping(path="/placeholderforsurvey.jsp", method=RequestMethod.POST)
+	@RequestMapping(path="/survey", method=RequestMethod.POST)
 	public String processSurvey(@Valid @ModelAttribute Survey newSurvey, BindingResult result, RedirectAttributes flash) {
 		flash.addFlashAttribute("placeholderforsurveyjsp", newSurvey);
 		
@@ -50,13 +53,13 @@ public class SurveyController {
 		return "redirect:/placeholderforconfirmationjsp";
 	}
 	
-	@RequestMapping(path="/placeholderforconfirmation",method=RequestMethod.GET)
+	@RequestMapping(path="/survey",method=RequestMethod.GET)
 	public String showConfirmation(ModelMap modelHolder) {
 		Map<String, Integer> topParks = surveyDAO.getFavoritePark();
 		Map<String, Park> parkList= new HashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
-			parkList.put(entry.getKey(),parkDao.getParkByParkCode(entry.getKey()));
+			parkList.put(entry.getKey(),parkDAO.getParkByParkCode(entry.getKey()));
 		}
 		 modelHolder.put("topParks", topParks);
 		 modelHolder.put("parkList", parkList);
@@ -70,7 +73,7 @@ public class SurveyController {
 		Map<String, Park> parkList= new HashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
-			parkList.put(entry.getKey(),parkDao.getParkByParkCode(entry.getKey()));
+			parkList.put(entry.getKey(),parkDAO.getParkByParkCode(entry.getKey()));
 		}
 		 modelHolder.put("topParks", topParks);
 		 modelHolder.put("parkList", parkList);
