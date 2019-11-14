@@ -19,49 +19,49 @@ import com.techelevator.npgeek.DAO.ParkDAO;
 public class SiteController {
 
 	@Autowired
-	ParkDAO parkDao;
+	ParkDAO parkDAO;
 
-	@Autowired
-	WeatherDAO weatherDao;
+//	@Autowired
+//	WeatherDAO weatherDAO;
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String showHomePage(ModelMap modelHolder, @ModelAttribute Park newNationalPark) {
-		List<Park> newParkList = parkDao.getAllParks();
+		List<Park> newParkList = parkDAO.getAllParks();
 		modelHolder.put("parks", newParkList);
 
 		return "homepage";
 
 	}
 
-	@RequestMapping(path = "/parkDetail/{parkCode}", method = RequestMethod.GET)
-	public String showParkDetail(@PathVariable String parkCode, HttpSession session, ModelMap modelHolder) {
-		String convert = (String) session.getAttribute("convert");
-		if (convert == null) {
-			convert = "F";
-			session.setAttribute("convert", convert);
-		}
-
-		List<Weather> newWeatherList = weatherDao.getWeatherByParkcode(parkCode);
-		Park newPark = parkDao.getParkByParkCode(parkCode);
-
-		if (convert.equals("C")) {
-			for (Weather tempWeather : newWeatherList) {
-				int tempVar;
-
-				// need to import conversion class for these next four lines to work not sure what you named them
-				tempVar = (int) Conversion.convertFtoCplaceholder(tempWeather.getHighTemp());
-				tempWeather.setHighTemp(tempVar);
-				tempVar = (int) Conversion.convertFtoCplaceholder(tempWeather.getLowTemp());
-				tempWeather.setLowTemp(tempVar);
-			}
-
-			modelHolder.put("park", newPark);
-			modelHolder.put("parkWeather", newWeatherList);
-
-			return "parkDetail";
-		}
-
-	}
+//	@RequestMapping(path = "/parkDetail/{parkCode}", method = RequestMethod.GET)
+//	public String showParkDetail(@PathVariable String parkCode, HttpSession session, ModelMap modelHolder) {
+//		String convert = (String) session.getAttribute("convert");
+//		if (convert == null) {
+//			convert = "F";
+//			session.setAttribute("convert", convert);
+//		}
+//
+//		List<Weather> newWeatherList = weatherDAO.getWeatherByParkcode(parkCode);
+//		Park newPark = parkDAO.getParkByParkCode(parkCode);
+//
+//		if (convert.equals("C")) {
+//			for (Weather tempWeather : newWeatherList) {
+//				int tempVar;
+//
+//				// need to import conversion class for these next four lines to work not sure what you named them
+//				tempVar = (int) Conversion.convertFtoCplaceholder(tempWeather.getHighTemp());
+//				tempWeather.setHighTemp(tempVar);
+//				tempVar = (int) Conversion.convertFtoCplaceholder(tempWeather.getLowTemp());
+//				tempWeather.setLowTemp(tempVar);
+//			}
+//
+//			modelHolder.put("park", newPark);
+//			modelHolder.put("parkWeather", newWeatherList);
+//
+//			return "parkDetail";
+//		}
+//
+//	}
 	
 	@RequestMapping(path="/parkDetail/{parkCode}",method=RequestMethod.POST)
 	public String showParkDetailWithConversion(@PathVariable String parkCode, @RequestParam String convert, HttpSession session, ModelMap modelHolder){
