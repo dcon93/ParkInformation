@@ -118,10 +118,4 @@ public class Weather {
 	public void setWeatherMessage(String weatherMessage) {
 		this.weatherMessage = weatherMessage;
 	}
-
-	public String getParsedForecast() {
-		String parsedForecast = forecast.replace(" ", "");
-
-		return parsedForecast;
-	}
 }
