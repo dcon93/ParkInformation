@@ -43,7 +43,7 @@ public class SiteController {
 
 		List<Weather> newWeatherList = weatherDAO.getWeatherByParkcode(parkCode);
 		Park newPark = parkDAO.getParkByParkCode(parkCode);
-
+		//System.out.println(newPark.getParkName());
 		if (convert.equals("C")) {
 			for (Weather tempWeather : newWeatherList) {
 				int tempVar;
@@ -55,11 +55,11 @@ public class SiteController {
 				tempWeather.setTempLow(tempVar);
 			}
 
-			modelHolder.put("park", newPark);
-			modelHolder.put("parkWeather", newWeatherList);
 
 			
 		}
+		modelHolder.put("park", newPark);
+		modelHolder.put("parkWeather", newWeatherList);
 		return "parkDetail";
 
 	}
