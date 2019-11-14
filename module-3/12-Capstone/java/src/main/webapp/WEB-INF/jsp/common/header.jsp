@@ -28,7 +28,7 @@
         
         
         <ul>
-            <li><a href="${homePage }">Home</a></li>
+            <li><a href="${homePageHref }">Home</a></li>
             <li><a href="${surveyUrl }">Survey</a></li>
             <li><a href="${topParksUrl }">Top Parks</a></li>
         </ul>
