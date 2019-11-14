@@ -21,8 +21,8 @@ public class SiteController {
 	@Autowired
 	ParkDAO parkDAO;
 
-//	@Autowired
-//	WeatherDAO weatherDAO;
+	@Autowired
+	WeatherDAO weatherDAO;
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String showHomePage(ModelMap modelHolder, @ModelAttribute Park newNationalPark) {
@@ -33,35 +33,36 @@ public class SiteController {
 
 	}
 
-//	@RequestMapping(path = "/parkDetail/{parkCode}", method = RequestMethod.GET)
-//	public String showParkDetail(@PathVariable String parkCode, HttpSession session, ModelMap modelHolder) {
-//		String convert = (String) session.getAttribute("convert");
-//		if (convert == null) {
-//			convert = "F";
-//			session.setAttribute("convert", convert);
-//		}
-//
-//		List<Weather> newWeatherList = weatherDAO.getWeatherByParkcode(parkCode);
-//		Park newPark = parkDAO.getParkByParkCode(parkCode);
-//
-//		if (convert.equals("C")) {
-//			for (Weather tempWeather : newWeatherList) {
-//				int tempVar;
-//
-//				// need to import conversion class for these next four lines to work not sure what you named them
-//				tempVar = (int) Conversion.convertFtoCplaceholder(tempWeather.getHighTemp());
-//				tempWeather.setHighTemp(tempVar);
-//				tempVar = (int) Conversion.convertFtoCplaceholder(tempWeather.getLowTemp());
-//				tempWeather.setLowTemp(tempVar);
-//			}
-//
-//			modelHolder.put("park", newPark);
-//			modelHolder.put("parkWeather", newWeatherList);
-//
-//			return "parkDetail";
-//		}
-//
-//	}
+	@RequestMapping(path = "/parkDetail/{parkCode}", method = RequestMethod.GET)
+	public String showParkDetail(@PathVariable String parkCode, HttpSession session, ModelMap modelHolder) {
+		String convert = (String) session.getAttribute("convert");
+		if (convert == null) {
+			convert = "F";
+			session.setAttribute("convert", convert);
+		}
+
+		List<Weather> newWeatherList = weatherDAO.getWeatherByParkcode(parkCode);
+		Park newPark = parkDAO.getParkByParkCode(parkCode);
+
+		if (convert.equals("C")) {
+			for (Weather tempWeather : newWeatherList) {
+				int tempVar;
+
+				// need to import conversion class for these next four lines to work not sure what you named them
+				tempVar = (int) CelsiusCalculator.farenheitToCelsius(tempWeather.getTempHigh());
+				tempWeather.setTempHigh(tempVar);
+				tempVar = (int) CelsiusCalculator.celsiusToFarenheit(tempWeather.getTempLow());
+				tempWeather.setTempLow(tempVar);
+			}
+
+			modelHolder.put("park", newPark);
+			modelHolder.put("parkWeather", newWeatherList);
+
+			
+		}
+		return "parkDetail";
+
+	}
 	
 	@RequestMapping(path="/parkDetail/{parkCode}",method=RequestMethod.POST)
 	public String showParkDetailWithConversion(@PathVariable String parkCode, @RequestParam String convert, HttpSession session, ModelMap modelHolder){
