@@ -13,6 +13,11 @@ public class CelsiusCalculator {
 		tempDouble = (tempDouble-32)*5/9;
 		return (int)Math.round(tempDouble);
 	}
+	public static int celsiusToFarenheit(int tempCelsius) {
+		double tempDouble = tempCelsius;
+		tempDouble = (tempDouble*5/9)+32;
+		return (int)Math.round(tempDouble);
+	}
 	
 	
 	public static double getTemperature() {
