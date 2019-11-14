@@ -29,7 +29,7 @@ public class SiteController {
 		List<Park> newParkList = parkDAO.getAllParks();
 		modelHolder.put("parks", newParkList);
 
-		return "homepage";
+		return "homePage";
 
 	}
 
