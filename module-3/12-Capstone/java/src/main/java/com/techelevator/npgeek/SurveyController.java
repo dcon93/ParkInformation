@@ -56,7 +56,7 @@ public class SurveyController {
 		Map<String, Park> parkList= new HashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
-			parkList.put(entry.getKey(),parkDao.getParkByParkCode(entry.getKey()));
+			parkList.put(entry.getKey(),parkDAO.getParkByParkCode(entry.getKey()));
 		}
 		 modelHolder.put("topParks", topParks);
 		 modelHolder.put("parkList", parkList);
@@ -70,7 +70,7 @@ public class SurveyController {
 		Map<String, Park> parkList= new HashMap<>();
 		
 		for(Entry<String, Integer> entry : topParks.entrySet()) {
-			parkList.put(entry.getKey(),parkDao.getParkByParkCode(entry.getKey()));
+			parkList.put(entry.getKey(),parkDAO.getParkByParkCode(entry.getKey()));
 		}
 		 modelHolder.put("topParks", topParks);
 		 modelHolder.put("parkList", parkList);
