@@ -24,11 +24,13 @@
         <p>More about Parks!</p>
       	<c:url value="/homePage" var="homePageUrl"/> 
       	<c:url value="/survey" var="surveyUrl"/> 
+      	<c:url value="/topParks" var="topParksUrl"/> 
         
         
         <ul>
             <li><a href="${homePage }">Home</a></li>
-            <li><a href="${survey }">Survey</a></li>
+            <li><a href="${surveyUrl }">Survey</a></li>
+            <li><a href="${topParksUrl }">Top Parks</a></li>
         </ul>
     </nav>
     
