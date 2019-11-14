@@ -8,16 +8,14 @@ public class CelsiusCalculator {
 	 *@return temperature in celsius
 	 *
 	 */
-	public static int farenheitToCelsius(int tempFarenheit) {
-		double tempDouble = tempFarenheit;
-		tempDouble = (tempDouble-32)*5/9;
-		return (int)Math.round(tempDouble);
+	public static double convertFtoC(double f){
+		temperature = ((f-32)*0.556);
+		return temperature;
 	}
-	public static int celsiusToFarenheit(int tempCelsius) {
-		double tempDouble = tempCelsius;
-		tempDouble = (tempDouble*5/9)+32;
-		return (int)Math.round(tempDouble);
-	}
+	public static double convertCtoF(double c){
+		temperature = ((c*1.8)+32);
+		return temperature;
+		}
 	
 	
 	public static double getTemperature() {
