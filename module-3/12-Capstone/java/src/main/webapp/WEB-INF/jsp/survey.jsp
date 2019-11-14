@@ -18,12 +18,19 @@
 			<form:option value="${park.parkCode }" >${park.parkName }</form:option>
 		</c:forEach>
 	</form:select>
-	<form:errors path="firstName" cssClass="errors"/>
+	<form:errors path="parkCode" cssClass="errors"/>
 	
-	<form:label path="email">Email</form:label>
+	<form:label path="email">Email:</form:label>
 	<form:input path="email" />
 	<form:errors path="email" cssClass="error"/>
+	
+	<form:label path="state">State of Residence:</form:label>
+	<form:select path="state" id="state">
+        <form:options items="${usaStates}"  />
+    </form:select>
+    <form:errors path="state" cssClass="error"/>
 
+	<input type="submit" value="Submit" />
 </form:form>
 
 
@@ -56,7 +63,7 @@
 	
 	<li>
 		<a href="${ parkUrl }"><img src="${parkImg }"/></a>
-		<a href="${ parkUrl }">${park.parkName } ($park.state)</a>
+		<a href="${ parkUrl }">${park.parkName } ${ park.state}</a>
 		<p>${park.parkDescription }</p>
 	
 	</li>
