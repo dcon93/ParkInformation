@@ -49,4 +49,12 @@ public class SeleniumTesting {
 	public static void closeWebBrowser() {
 		webDriver.close();
 	}
+	
+	@Test
+	public void single_elements_can_be_found_by_tag_name() {
+		WebElement header = webDriver.findElement(By.tagName("header"));
+		assertNotNull(header);
+	}
+	
+	
 	}
