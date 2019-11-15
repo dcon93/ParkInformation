@@ -10,8 +10,10 @@
 	
 	<li class="park-box">
 		<a href="${ parkUrl }/${park.parkCode}"><img class="park-list-img" src="${parkImg }"/></a>
+		<div class="park-box-text">
 		<a class = "park-list-name" href="${ parkUrl }/${park.parkCode}">${park.parkName } (${ park.state})</a>
 		<p class="park-list-description">${park.parkDescription }</p>
+		</div>
 	
 	</li>
 	</c:forEach>

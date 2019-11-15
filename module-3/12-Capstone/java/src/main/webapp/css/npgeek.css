@@ -14,31 +14,40 @@ header{
     flex-direction: row;
 }
 .header-img{
-	width:70%;
-	margin-left:40x;
+	width:90%;
+	display: block;
+	margin: auto;
 
 	
 }
+nav{
+	margin: 10px;
+}
 nav ul{
+	border-radius: 5px;
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-start;
+	background-color: #e4e4e5 ;
+	margin-left: 0px;
+	font: 15px;
+	padding-inline-start: 0px;
 }
 
 
 nav ul li {
 	float: left;
-	margin-right: 20px;
-	background-color: #d6d6d8 ;
+	
 	list-style: none;
 	text-align: center;
-	width: 200px;
+	width: 100px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-radius: 10px;
+	border-radius: 5px;
 	text-decoration: none;
 }
 li a {
-	color: #0D118B;
+	padding-top: 10px;
+	color: #432109;
 	text-decoration: none;
 	/*font-size: 20pt;*/
 	list-style: none;
@@ -52,23 +61,112 @@ nav h2{
 }
 .park-box{
 	display:flex;
-	flex-direction: column;
-	background-color: #d6d6d8 ;
-	border-radius: 10px;
+	flex-direction: row;
+	background-color: #e4e4e5 ;
+	border-radius: 5px;
 	margin: 10px 10px 10px 10px;
-	padding: 10px;
+	padding: 15px;
+}
+.park-box-text{
+	padding-top: 8px;
+	padding-left: 15px;
 }
 .park-list-img{
 	display: inline;
-	border-radius: 10px;
-	margin: 10px;
-	width: 80%;
+	border-radius: 5px;
+
+	width: 300px;
+
 }
 .park-list-name{
+
 	font-size: 20pt;
 	font-weight; bold;
 	
 }
+body ul{
+	padding: 0px;	
+}
 /*starting detail page*/
+.responses{
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	
+}
+
+.responses img{
+	width: 150px;
+	margin-right: 10px;
+	
+	
+}
+.response-img-td{
+	width: 20%;
+	margin-right: 10px;
+}
+.responses name{
+		width: 30%;
+		
+		text-align: left;
+		padding-left: 20px;
+		margin-left: 50px;
+		
+}
+.response-number{
+	margin-left:auto;
+}
+table{
+	display: block;
+
+	margin-left: 0px;
+}
+tbody{
+	display: block;
+}
+
+
+h2 {
+	margin-left: 10px;
+}
+
+
+/* Form css starts here*/
+
+form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 10px;
+	font-size: 16pt;
+
+
+}
+form label{
+	width: 250px;
+}
+form input{
+	height: 30px;
+}
+form select{
+	height: 30px;
+}
+form div{
+	display:flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+	margin: 10px 0px 10px 0px;
+	
+}
+#button{
+	font-size: 80px;
+}
+
+
+
+
+
 
 

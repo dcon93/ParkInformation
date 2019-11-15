@@ -3,15 +3,14 @@
 <%@include file="common/header.jsp"%>
 
 
-<h2>
-	<c:out value="${park.parkName}" />
-</h2>
+<div class="tile is-ancestral">
 
-<div>
 	<c:url var="imageLink"
 		value="/img/parks/${park.parkCode.toLowerCase()}.jpg" />
-	<img src="${imageLink }" />
-</div>
+	<img class = "is-full-width"src="${imageLink }" />
+	<h2>
+		<c:out value="${park.parkName}" />
+	</h2>
 
 <div>
 	<p>
@@ -19,7 +18,11 @@
 				value="${park.inspirationalQuoteSource }" /></em>
 	</p>
 </div>
-
+<div class="container is-fluid">
+  <div class="notification">
+    This container is <strong>centered</strong> on desktop.
+  </div>
+</div>
 <div>
 	<p>
 		<c:out value="${park.parkDescription }" />
@@ -104,8 +107,8 @@
 				</c:if>
 			</c:forEach>
 		</div>
-	</div>
-</div>
+
+
 
 		<div class="fiveDayWeatherContainer">
 			<c:forEach items="${parkWeather}" var="forecastWeather">
@@ -129,9 +132,9 @@
 					</div>
 				</c:if>
 			</c:forEach>
-		</div>
-	</div>
-</div>
+
+
+
 
 			<c:url var="conversionSubmit" value="/parkDetail/${park.parkCode}" />
 			<form method="post" action="${CelsiusCalculator }">
@@ -153,5 +156,6 @@
 			<p>
 				<strong><c:out value="${parkWeather[0].weatherMessage}" /></strong>
 			</p>
-
+</div>
+</div>
 <%@include file="common/footer.jsp"%>
