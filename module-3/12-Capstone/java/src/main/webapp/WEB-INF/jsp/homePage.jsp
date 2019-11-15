@@ -8,10 +8,10 @@
 	<c:url value="img/parks/${fn:toLowerCase(park.parkCode) }.jpg" var="parkImg"/>
 	<c:url value="parkDetail" var="parkUrl"/>	
 	
-	<li>
-		<a href="${ parkUrl }/${park.parkCode}"><img src="${parkImg }"/></a>
-		<a href="${ parkUrl }/${park.parkCode}">${park.parkName } (${ park.state})</a>
-		<p>${park.parkDescription }</p>
+	<li class="park-box">
+		<a href="${ parkUrl }/${park.parkCode}"><img class="park-list-img" src="${parkImg }"/></a>
+		<a class = "park-list-name" href="${ parkUrl }/${park.parkCode}">${park.parkName } (${ park.state})</a>
+		<p class="park-list-description">${park.parkDescription }</p>
 	
 	</li>
 	</c:forEach>

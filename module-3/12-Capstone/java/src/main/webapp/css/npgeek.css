@@ -1,0 +1,74 @@
+
+* {
+	font-family: helvetica;
+}
+
+	
+header{ 
+    display:flex;
+	justify-content: center;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+}
+.header-img{
+	width:70%;
+	margin-left:40x;
+
+	
+}
+nav ul{
+	display: flex;
+	justify-content: space-around;
+}
+
+
+nav ul li {
+	float: left;
+	margin-right: 20px;
+	background-color: #d6d6d8 ;
+	list-style: none;
+	text-align: center;
+	width: 200px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	text-decoration: none;
+}
+li a {
+	color: #0D118B;
+	text-decoration: none;
+	/*font-size: 20pt;*/
+	list-style: none;
+	text-align: center;
+	vertical-align: middle;
+}
+nav h2{
+	text-align: center
+	/*padding-left:40px;*/
+	
+}
+.park-box{
+	display:flex;
+	flex-direction: column;
+	background-color: #d6d6d8 ;
+	border-radius: 10px;
+	margin: 10px 10px 10px 10px;
+	padding: 10px;
+}
+.park-list-img{
+	display: inline;
+	border-radius: 10px;
+	margin: 10px;
+	width: 80%;
+}
+.park-list-name{
+	font-size: 20pt;
+	font-weight; bold;
+	
+}
+/*starting detail page*/
+
+
