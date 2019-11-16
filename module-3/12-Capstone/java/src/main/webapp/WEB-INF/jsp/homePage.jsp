@@ -3,6 +3,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 	<c:url value="/homePage" var="homePageUrl"/>
+<div class="content">
 <ul>
 	<c:forEach items="${parks }" var="park"> 
 	<c:url value="img/parks/${fn:toLowerCase(park.parkCode) }.jpg" var="parkImg"/>
@@ -20,6 +21,7 @@
 
 
 </ul>
+</div>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
 

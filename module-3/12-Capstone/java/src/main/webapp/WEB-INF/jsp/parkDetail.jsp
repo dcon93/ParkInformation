@@ -1,89 +1,122 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <%@include file="common/header.jsp"%>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 <div class="tile is-ancestral">
-
-	<c:url var="imageLink"
-		value="/img/parks/${park.parkCode.toLowerCase()}.jpg" />
-	<img class = "is-full-width"src="${imageLink }" />
-	<h2>
+	<div class="tile is-parent is-4">
+		<div class="is-child box">
+		<c:url var="imageLink"
+			value="/img/parks/${park.parkCode.toLowerCase()}.jpg" />
+		<img class = " image "src="${imageLink }" />
+		</div>
+	</div>
+	<div class="is-parent tile">
+	<div class="tile box is-child">
+	<h2 class="title">
 		<c:out value="${park.parkName}" />
 	</h2>
+		<p>
+		<c:out value="${park.parkDescription }" />
+		</p>
+		<br><br>
+		<p class="content">
+			<em>"<c:out value="${park.inspirationalQuote }" />" <br><br>
+				&emsp;&emsp;-<c:out
+					value="${park.inspirationalQuoteSource }" /></em>
+		</p>
+	</div>
+	</div>
+</div>
 
 <div>
-	<p>
-		<em>"<c:out value="${park.inspirationalQuote }" />" -<c:out
-				value="${park.inspirationalQuoteSource }" /></em>
-	</p>
 </div>
-<div class="container is-fluid">
-  <div class="notification">
-    This container is <strong>centered</strong> on desktop.
-  </div>
-</div>
-<div>
-	<p>
-		<c:out value="${park.parkDescription }" />
-	</p>
+
+
+<div class="tile is-ancestral">
+<div class="tile is-parent">
+<table class="table is-fullwidth tile is-child box">
+	
+	<tr>
+		<th>Entry Fee: </th>
+	<td>
 	<c:choose>
 		<c:when test="${park.entryFee == 0.0 }">
-			<p>Entry Fee: Free!</p>
+			Free!
 		</c:when>
 		<c:otherwise>
-			<p>
-				Entry Fee: $
+			
+				$
 				<c:out value="${park.entryFee }" />
-			</p>
+			
 		</c:otherwise>
 	</c:choose>
-
-	<p>
-		State:
-		<c:out value="${park.state }" />
-	</p>
-	<p>
-		Acreage:
-		<c:out value="${park.acreage}" />
-	</p>
-	<p>
-		Established:
-		<c:out value="${park.yearFounded }" />
-	</p>
-	<p>
-		Number of Visitors:
-		<c:out value="${park.annualVisitorCount }" />
-	</p>
-	<p>
-		Elevation:
-		<c:out value="${park.elevationInFeet }" />
-	</p>
-	<p>
-		Climate:
-		<c:out value="${park.climate }" />
-	</p>
-	<p>
-		Total Miles of Trails:
-		<c:out value="${park.milesOfTrail }" />
-	</p>
+	</td>
+	</tr>
+	<tr>
+		<th>State:</th>
+		<td><c:out value="${park.state }" /></td>
+	</tr>
+	<tr>
+		<th>Acreage:</th>
+		<td><c:out value="${park.acreage}" /></td>
+	</tr>
+	<tr>
+		<th>Established:</th>
+		<td><c:out value="${park.yearFounded }" /></td>
+	</tr>
+	<tr>
+		<th>Number of Visitors:</th>
+		<td><c:out value="${park.annualVisitorCount }" /></td>
+	</tr>
+	</table>
+	</div>
+	<div class="tile is-parent">
+	<table class="table is-fullwidth tile box is-child">
+	<tr>
+		<th>Elevation:</th>
+		<td><c:out value="${park.elevationInFeet }" /></td>
+	</tr>
+	<tr>
+		<th>Climate:</th>
+		<td><c:out value="${park.climate }" /></td>
+	</tr>
+	<tr>
+		<th>Total Miles of Trails:</th>
+		<td><c:out value="${park.milesOfTrail }" /></td>
+	</tr>
+	<tr>
+	<th>Total Number of Campsites:</th>
+	<td>
 	<c:choose>
 		<c:when test="${park.numberOfCampsites == 0 }">
-			<p>Total Number of Campsites: No Campsites Available</p>
+			<p> No Campsites Available</p>
 		</c:when>
 		<c:otherwise>
 			<p>
-				Total Number of Campsites:
+				
 				<c:out value="${park.numberOfCampsites }" />
 			</p>
 		</c:otherwise>
 	</c:choose>
-	<p>
-		Total Number of Animal Species:
-		<c:out value="${park.numberOfAnimalSpecies }" />
-	</p>
+	</td>
+	</tr>
+	<tr>
+		<th>Total Number of Animal Species:</th>
+		<td><c:out value="${park.numberOfAnimalSpecies }" /></td>
+	</tr>
+</table>
+</div>
 </div>
 
+
+
+<div class="tile is-ancestral">
 <div class="oneDayWeatherContainer">
 			<c:forEach items="${parkWeather}" var="forecastWeather">
 				<c:if test="${forecastWeather.fiveDayForeCast < 1}">
@@ -133,7 +166,7 @@
 				</c:if>
 			</c:forEach>
 
-
+</div>
 
 
 			<c:url var="conversionSubmit" value="/parkDetail/${park.parkCode}" />
@@ -156,6 +189,7 @@
 			<p>
 				<strong><c:out value="${parkWeather[0].weatherMessage}" /></strong>
 			</p>
-</div>
+
+
 </div>
 <%@include file="common/footer.jsp"%>
