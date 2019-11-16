@@ -117,7 +117,7 @@
 
 
 <div class="tile is-ancestral">
-<div class="oneDayWeatherContainer">
+<%--<div class="oneDayWeatherContainer">
 			<c:forEach items="${parkWeather}" var="forecastWeather">
 				<c:if test="${forecastWeather.fiveDayForeCast < 1}">
 					<div class="individualForecasts">
@@ -139,14 +139,13 @@
 					</div>
 				</c:if>
 			</c:forEach>
-		</div>
+		</div> --%>
 
 
-
-		<div class="fiveDayWeatherContainer">
+		
+		<div class="fiveDayWeatherContainer tile is-parent">
 			<c:forEach items="${parkWeather}" var="forecastWeather">
-				<c:if test="${forecastWeather.fiveDayForeCast > 0}">
-					<div class="individualForecasts">
+					<div class="individualForecasts tile is-child box">
 						<div class="individualImage">
 							<c:url var="weatherImage"
  								value="/img/weather/" />
@@ -160,21 +159,47 @@
 							<div>
 								Low:
 								<c:out value="${forecastWeather.tempLow}" />
+						<c:if test="${forecastWeather.fiveDayForeCast ==1}">			
+							<div class="content">
+							<p>
+								<strong><c:out value="${parkWeather[0].weatherMessage}" /></strong>
+							</p>
+							</div>
+						</c:if>
 							</div>
 						</div>
 					</div>
-				</c:if>
+				
 			</c:forEach>
 
-</div>
+
 
 
 			<c:url var="conversionSubmit" value="/parkDetail/${park.parkCode}" />
-			<form method="post" action="${CelsiusCalculator }">
-				<input type="radio" name="convert" value="C">Celcius <input
-					type="radio" name="convert" value="F">Fahrenheit <input
-					type="submit">
+
+			<form class="is-child tile box is-2" method="post" action="${CelsiusCalculator }">
+					<div class="control">
+				<div class="field">
+					
+						<label class="radio"><input class = "radio"type="radio" name="convert" value="C">Celsius</label>
+					</div>
+					</div>
+					<div class="control">	
+					<div class="field">	
+	
+						 <label class="radio"><input	type="radio" name="convert" value="F"/>Fahrenheit </label>
+
+					</div>
+					</div>
+			
+					
+					<div class="field control">
+							<button	class="button is-link"type="submit">Submit</button>
+				
+					</div>
 			</form>
+					</div>
+
 			
 <%-- 							<c:if test="${F == false}"> --%>
 <%-- 								<fmt:formatNumber var="formattedCHigh" maxFractionDigits="0" value="${((forecast.highTemp - 32) * (.5556)) }" /> --%>
@@ -186,9 +211,6 @@
 <%-- 								High <c:out value="${forecast.highTemp}" />  --%>
 <%-- 								Low <c:out value="${forecast.lowTemp}" />  --%>
 <%-- 							</c:if>							 --%>
-			<p>
-				<strong><c:out value="${parkWeather[0].weatherMessage}" /></strong>
-			</p>
 
 
 </div>
