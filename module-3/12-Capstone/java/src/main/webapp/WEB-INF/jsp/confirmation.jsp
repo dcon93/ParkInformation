@@ -2,24 +2,21 @@
 
 <%@include file="common/header.jsp" %>
 
-<p>Thank you for your survey!</p>
+<h2>Thank you for your survey!</h2>
 <table class="topParksTable">
-		<tr> 
-			<th>&nbsp;</th> <th>&nbsp;</th> <th>Number of responses</th>
-		</tr>
+	
 	<c:forEach items="${topParks}" var="park">
 
-		<tr> 
-			<td > 
-				<c:url var="/parkDetail" value="/parkDetail"/>
+		<tr class="park-box responses"> 
+			<td class="response-img-td"> 
 				<c:url var="imageLink" value="/img/parks/${park.key.toLowerCase() }.jpg" />
-				<a href="${parkDetail }"><img src="${imageLink }" class="congratsImage"/></a>
+				<img src="${imageLink }" class="congratsImage park-list-img responses-img"/>
 			</td>
-			<td>
+			<td class="park-list-name responses-name">
 				<c:out value="${parkList[park.key].parkName}"/>
 			</td>
-			<td>
-				<c:out value="${park.value }" />
+			<td class="response-number">
+				Survey responses: <c:out value="${park.value }" />
 			</td>
 		</tr>	
 
