@@ -6,14 +6,16 @@
 <table class="topParksTable">
 	
 	<c:forEach items="${topParks}" var="park">
-
+		<c:url value="parkDetail" var="parkUrl"/>
 		<tr class="park-box responses"> 
 			<td class="response-img-td"> 
 				<c:url var="imageLink" value="/img/parks/${park.key.toLowerCase() }.jpg" />
-				<img src="${imageLink }" class="congratsImage park-list-img responses-img"/>
+				<a href="${ parkUrl }/${parkList[park.key].parkCode}"><img src="${imageLink }" class="congratsImage park-list-img responses-img"/></a>
 			</td>
 			<td class="park-list-name responses-name">
-				<c:out value="${parkList[park.key].parkName}"/>
+				<a href="${ parkUrl }/${parkList[park.key].parkCode}">
+					<c:out value="${parkList[park.key].parkName}"/>
+				</a>
 			</td>
 			<td class="response-number">
 				Survey responses: <c:out value="${park.value }" />

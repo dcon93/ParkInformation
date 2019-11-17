@@ -219,6 +219,14 @@ form div{
 	font-size: 80px;
 }
 
+.responses a{
+	color: #432109;
+	text-decoration: none;
+	/*font-size: 20pt;*/
+	list-style: none;
+}
+
+
 
 
 

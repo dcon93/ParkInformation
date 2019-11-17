@@ -36,7 +36,7 @@
 		    <form:errors path="state" cssClass="error"/>
 	</div>
 	<div>
-			<form:label path="activityLevel">Activity Level:</form:label>
+			<form:label path="activityLevel">Physical Activity Level:</form:label>
 			<form:select path="activityLevel" id="activityLevel">
 		        <form:option class="option" value="inactive" label="Inactive"/> 
 		        <form:option class="option" value="sedentary" label="Sedentary"/> 
