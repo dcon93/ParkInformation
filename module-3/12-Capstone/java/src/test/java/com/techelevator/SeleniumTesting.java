@@ -56,5 +56,35 @@ public class SeleniumTesting {
 		assertNotNull(header);
 	}
 	
+	@Test
+	public void forms_can_be_edited_and_submitted() throws InterruptedException {
+		WebElement surveyLink = webDriver.findElement(By.linkText("Survey"));
+		// calculatorLink.click();
+		JavascriptExecutor ex = (JavascriptExecutor)webDriver;
+		ex.executeScript("arguments[0].click();", surveyLink);
+
+		
+		WebElement amountField = webDriver.findElement(By.name("Email"));
+		// The sendKeys(...) method can be used to simulate typing in a field
+		amountField.sendKeys("dcon90devin@gmail.com");
+		// To interact with a <select> element, wrap the WebElement in a Select object
+		Select parkField = new Select(webDriver.findElement(By.name("Favorite Park")));
+		parkField.selectByVisibleText("Cuyahoga Valley National Park");
+		Select stateField = new Select(webDriver.findElement(By.name("State of Residence")));
+		stateField.selectByVisibleText("PA");
+		Select activityField = new Select(webDriver.findElement(By.name("Activity Level")));
+		activityField.selectByVisibleText("Inactive");
+		
+		WebElement submitButton = webDriver.findElement(By.className("formSubmitButton"));
+
+		ex.executeScript("arguments[0].click();", submitButton);
+		//submitButton.click();
+		
+		/* Elements without an id can be found using an xPath expression.
+		 * However, finding elements by xPath should generally be avoided 
+		 * as it is slow and makes for brittle tests. */
+		WebElement confirmation = webDriver.findElement(By.tagName("confirmation"));
+		assertNotNull(confirmation);
 	
-	}
+	
+	}}
