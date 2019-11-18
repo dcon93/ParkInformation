@@ -1,4 +1,4 @@
-package com.techelevator.npgeek;
+package com.techelevator.npgeek.DAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
+import com.techelevator.npgeek.Weather;
 
 
 @Component

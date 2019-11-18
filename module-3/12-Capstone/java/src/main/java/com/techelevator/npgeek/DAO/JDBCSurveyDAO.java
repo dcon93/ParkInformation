@@ -35,6 +35,23 @@ public class JDBCSurveyDAO implements SurveyDAO {
 			
 		}
 
+	
+	public Survey getSurveyById(Long id) {
+		String sqlGetSurvey = "SELECT surveyid, parkcode, emailaddress, state, activitylevel "
+								+ "FROM survey_result "
+								+ "WHERE surveyid = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetSurvey, id);
+		Survey survey = new Survey();
+		if(results.next()) {
+			survey.setActivityLevel(results.getString("activitylevel"));
+			survey.setEmail(results.getString("emailaddress"));
+			survey.setParkCode(results.getString("parkcode"));
+			survey.setState(results.getString("state"));
+			survey.setSurveyId(results.getLong("surveyid"));
+		}
+		return survey;
+		
+	}
 
 
 	@Override

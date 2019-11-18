@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.npgeek.DAO.ParkDAO;
+import com.techelevator.npgeek.DAO.WeatherDAO;
 
 @Controller
 public class SiteController {
@@ -49,9 +50,9 @@ public class SiteController {
 				int tempVar;
 
 				// need to import conversion class for these next four lines to work not sure what you named them
-				tempVar = (int) CelsiusCalculator.farenheitToCelsius(tempWeather.getTempHigh());
+				tempVar = (int) CelsiusCalculator.convertFtoC(tempWeather.getTempHigh());
 				tempWeather.setTempHigh(tempVar);
-				tempVar = (int) CelsiusCalculator.celsiusToFarenheit(tempWeather.getTempLow());
+				tempVar = (int) CelsiusCalculator.convertFtoC(tempWeather.getTempLow());
 				tempWeather.setTempLow(tempVar);
 			}
 

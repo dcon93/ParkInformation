@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>National Park</title>
-    <%--<c:url value="/css/npgeek.css" var="cssHref" /> --%>
+    <c:url value="/css/npgeek.css" var="cssHref" /> 
     <link rel="stylesheet" href="${cssHref}">
+    
 </head>
 
 <body>
@@ -14,21 +15,21 @@
     		<c:url value="/" var="homePageHref" />
     		<c:url value="/img/logo.png" var="logoSrc" />
         <a href="${homePageHref}">
-        		<img src="${logoSrc}" alt="National Parks Geek Logo" />
+        		<img class="header-img" src="${logoSrc}" alt="National Parks Geek Logo" />
         </a>
         <h1></h1>
         <%--<p>Description </p>--%>
     </header>
     <nav>
-        <h2>National Parks</h2>
-        <p>More about Parks!</p>
+        <h2>Welcome to the National Park Geek!</h2>
+        <%--<p>More about Parks!</p> --%>
       	<c:url value="/homePage" var="homePageUrl"/> 
       	<c:url value="/survey" var="surveyUrl"/> 
       	<c:url value="/topParks" var="topParksUrl"/> 
         
         
-        <ul>
-            <li><a href="${homePage }">Home</a></li>
+        <ul class="menu">
+            <li><a href="${homePageHref }">Home</a></li>
             <li><a href="${surveyUrl }">Survey</a></li>
             <li><a href="${topParksUrl }">Top Parks</a></li>
         </ul>
